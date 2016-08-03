@@ -1048,7 +1048,7 @@ ORYX.Editor = {
 		// Get the serialized dom
         var serializedDOM = DataManager.serializeDOM( this._getPluginFacade() );
 		
-		// Add xml impl if there is no
+		// Add xml definition if there is no
 		serializedDOM = '<?xml version="1.0" encoding="utf-8"?>' +
 						'<html xmlns="http://www.w3.org/1999/xhtml" ' +
 						'xmlns:b3mn="http://b3mn.org/2007/b3mn" ' +
@@ -1392,7 +1392,7 @@ ORYX.Editor = {
     		return;
     	}
     	stencilset.addExtension(extension);
-    	//stencilset.addExtension("/oryx/build/stencilsets/extensions/" + extension["impl"])
+    	//stencilset.addExtension("/oryx/build/stencilsets/extensions/" + extension["definition"])
     	this.getRules().initializeRules(stencilset);
 
     	this._getPluginFacade().raiseEvent({
