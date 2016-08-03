@@ -120,7 +120,7 @@ public class UUIDBasedRepositoryServlet extends HttpServlet {
 		try {
 			String response =  new String(_repository.load(req, uuid, profile, getServletContext()), Charset.forName("UTF-8"));
 			resp.getWriter().write(response);
-		} catch (Throwable e) {
+		} catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().write("error: " + ExceptionUtils.getStackTrace(e));
 		}

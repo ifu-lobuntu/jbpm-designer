@@ -472,7 +472,7 @@ ORYX.Plugins.PropertyWindow = {
 		
 		/* 
 		 * A common property is a property, that is part of 
-		 * the stencil impl of the first and all other stencils.
+		 * the stencil definition of the first and all other stencils.
 		 */
 		var stencils = this.getStencilSetOfSelection();
 		var firstStencil = stencils.values().first();
@@ -3763,7 +3763,7 @@ Ext.form.ComplexActionsField = Ext.extend(Ext.form.TriggerField,  {
                                     assignment: "false"
                                 }));
                             } else {
-                                // for custom tasks we need to deal with no impl
+                                // for custom tasks we need to deal with no definition
                                 var fromPart = innerParts[0];
                                 var dataType = dataTypeMap[fromPart];
                                 if (!dataType){

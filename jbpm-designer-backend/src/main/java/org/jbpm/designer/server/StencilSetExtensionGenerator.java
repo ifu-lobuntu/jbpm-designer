@@ -308,7 +308,7 @@ public class StencilSetExtensionGenerator {
 				+ "\t\t\t\"title\":\"" + name + "\",\n"
 				+ "\t\t\t\"namespace\":\"" + namespace + "\",\n"
 				+ "\t\t\t\"description\":\"" + description + "\",\n"
-				+ "\t\t\t\"impl\":\"" + location + "\",\n"
+				+ "\t\t\t\"definition\":\"" + location + "\",\n"
 				+ "\t\t\t\"extends\":\"" + baseStencilset + "\"\n"
 				+ "\t\t},";
 			

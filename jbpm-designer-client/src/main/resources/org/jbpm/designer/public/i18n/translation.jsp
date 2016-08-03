@@ -162,7 +162,7 @@ ORYX.I18N.BPELSupport.transformBPELToBPMN_desc='<i18n:message key="ORYX.I18N.BPE
 ORYX.I18N.BPELSupport.submit='<i18n:message key="ORYX.I18N.BPELSupport.submit">Submit</i18n:message>';
 ORYX.I18N.BPELSupport.transforming='<i18n:message key="ORYX.I18N.BPELSupport.transforming">Transforming...</i18n:message>';
 ORYX.I18N.BPELSupport.errorImporting='<i18n:message key="ORYX.I18N.BPELSupport.errorImporting">The BPEL file could not be imported.</i18n:message>';
-ORYX.I18N.BPELSupport.noComply='<i18n:message key="ORYX.I18N.BPELSupport.noComply">Your BPEL file does not comply with the XML schema impl.</i18n:message>';
+ORYX.I18N.BPELSupport.noComply='<i18n:message key="ORYX.I18N.BPELSupport.noComply">Your BPEL file does not comply with the XML schema definition.</i18n:message>';
 ORYX.I18N.BPELSupport.errorMessage='<i18n:message key="ORYX.I18N.BPELSupport.errorMessage">Error message:</i18n:message>';
 
 

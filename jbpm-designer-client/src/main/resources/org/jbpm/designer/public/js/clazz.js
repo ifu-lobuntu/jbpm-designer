@@ -53,7 +53,7 @@ Clazz.prototype.construct = function() {};
  *     // Do sth.
  *   }
  * });
- * @param {Object} def The impl of the new class.
+ * @param {Object} def The definition of the new class.
  */
 Clazz.extend = function(def) {
     var classDef = function() {

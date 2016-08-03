@@ -77,7 +77,7 @@ nv.models.discreteBar = function() {
 
 
 
-      //TODO: by impl, the discrete bar should not have multiple groups, will modify/remove later
+      //TODO: by definition, the discrete bar should not have multiple groups, will modify/remove later
       var groups = wrap.select('.nv-groups').selectAll('.nv-group')
           .data(function(d) { return d }, function(d) { return d.key });
       groups.enter().append('g')
