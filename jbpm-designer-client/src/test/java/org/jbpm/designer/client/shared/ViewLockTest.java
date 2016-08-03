@@ -18,6 +18,7 @@ package org.jbpm.designer.client.shared;
 
 import com.google.gwtmockito.GwtMock;
 import com.google.gwtmockito.GwtMockitoTestRunner;
+import org.jbpm.designer.client.Bpmn2DesignerPresenter;
 import org.jbpm.designer.client.DesignerPresenter;
 import org.jbpm.designer.client.DesignerView;
 import org.junit.Before;
@@ -56,7 +57,7 @@ public class ViewLockTest {
         when ( versionRecordManager.getCurrentPath() ).thenReturn( path );
         when ( updatedLockStatusEvent.getFile() ).thenReturn( path );
 
-        DesignerPresenter designerPresenter = new DesignerPresenter(designerView);
+        DesignerPresenter designerPresenter = new Bpmn2DesignerPresenter(designerView);
         designerPresenter.setVersionRecordManager(versionRecordManager);
 
         designerPresenter.onLockChange(updatedLockStatusEvent);
@@ -69,7 +70,7 @@ public class ViewLockTest {
         when(versionRecordManager.getCurrentPath() ).thenReturn( path );
         when ( updatedLockStatusEvent.getFile() ).thenReturn( otherPath );
 
-        DesignerPresenter designerPresenter = new DesignerPresenter(designerView);
+        DesignerPresenter designerPresenter = new Bpmn2DesignerPresenter(designerView);
         designerPresenter.setVersionRecordManager(versionRecordManager);
 
         designerPresenter.onLockChange(updatedLockStatusEvent);

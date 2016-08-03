@@ -301,7 +301,7 @@ var ERDF = {
 	
 	registerTriple: function(subject, predicate, object) {
 		
-		// if prefix is schema, this is a schema definition.
+		// if prefix is schema, this is a schema impl.
 		if(predicate.prefix.toLowerCase() == 'schema')
 			this.registerSchema(predicate.name, object.value);
 			

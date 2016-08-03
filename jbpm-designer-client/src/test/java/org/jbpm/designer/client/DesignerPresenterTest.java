@@ -48,7 +48,7 @@ public class DesignerPresenterTest {
 
     @InjectMocks
     @Spy
-    private DesignerPresenter presenter =  new DesignerPresenter(view)
+    private DesignerPresenter presenter =  new Bpmn2DesignerPresenter(view)
     {
         @Override
         protected void resetEditorPages(final Overview overview)

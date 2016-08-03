@@ -406,7 +406,7 @@ ORYX.CONFIG.PANEL_RIGHT_COLLAPSED = true;
 ORYX.CONFIG.PANEL_LEFT_COLLAPSED = true;
 
 ORYX.CONFIG.STENCIL_MAX_ORDER = 999;
-ORYX.CONFIG.STENCIL_GROUP_ORDER = function() {
+ORYX.CONFIG.STENCIL_GROUP_ORDER = function() { 
     var stencilObj = {
         "http://b3mn.org/stencilset/bpmn2.0#" : {
             "Tasks": 1,

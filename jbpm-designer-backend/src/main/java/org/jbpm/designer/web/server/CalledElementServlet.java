@@ -34,6 +34,7 @@ import org.jbpm.designer.repository.Asset;
 import org.jbpm.designer.util.Utils;
 import org.jbpm.designer.web.profile.IDiagramProfile;
 import org.jbpm.designer.web.profile.IDiagramProfileService;
+import org.jbpm.designer.web.profile.IExtensionDiagramProfile;
 import org.json.JSONObject;
 import org.kie.workbench.common.services.refactoring.model.index.terms.valueterms.ValueIndexTerm;
 import org.kie.workbench.common.services.refactoring.model.index.terms.valueterms.ValueRuleAttributeIndexTerm;
@@ -46,7 +47,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Sevlet for resolving called elements.
- * 
+ *
  * @author Tihomir Surdilovic
  */
 public class CalledElementServlet extends HttpServlet {
@@ -54,19 +55,17 @@ public class CalledElementServlet extends HttpServlet {
     private static final Logger logger = LoggerFactory.getLogger(CalledElementServlet.class);
 
 
-    protected IDiagramProfile profile;
-
     @Inject
     private IDiagramProfileService _profileService = null;
 
     @Inject
     private RefactoringQueryService queryService;
-	
+
 	@Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
     }
-	
+
 	@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -74,10 +73,7 @@ public class CalledElementServlet extends HttpServlet {
         String processPackage = req.getParameter("ppackage");
         String processId = req.getParameter("pid");
         String action = req.getParameter("action");
-        
-        if(profile == null) {
-            profile = _profileService.findProfile(req, profileName);
-        }
+        IDiagramProfile profile = _profileService.findProfile(req, profileName);
         if(action != null && action.equals("openprocessintab")) {
         	String retValue = "";
         	List<String> allPackageNames = ServletUtil.getPackageNamesFromRepository(profile);
@@ -146,6 +142,7 @@ public class CalledElementServlet extends HttpServlet {
             resp.setCharacterEncoding("UTF-8");
             resp.setContentType("application/json");
             resp.getWriter().write(getDataTypesInfoAsJSON(dataTypeNames).toString());
+        }else if(profile instanceof IExtensionDiagramProfile && ((IExtensionDiagramProfile)profile).processRequestForPotentialReferences(req,resp,action,processId)){
         } else {
 	        String retValue = "false";
 	        List<String> allPackageNames = ServletUtil.getPackageNamesFromRepository(profile);
