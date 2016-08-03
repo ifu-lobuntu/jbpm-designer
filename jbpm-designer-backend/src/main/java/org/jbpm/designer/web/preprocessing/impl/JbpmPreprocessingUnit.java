@@ -228,7 +228,7 @@ public class JbpmPreprocessingUnit implements IDiagramPreprocessingUnit {
                 try {
                     evaluateWorkDefinitions(workDefinitions, entry, asset.getAssetLocation(), repository, profile);
                 } catch(Exception e) {
-                    _logger.error("Unable to parse a workitem impl: " + e.getMessage());
+                    _logger.error("Unable to parse a workitem definition: " + e.getMessage());
                 }
 
             }

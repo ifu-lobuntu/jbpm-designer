@@ -65,7 +65,7 @@
                                 lineWidth:7,
                                 strokeStyle:"#2e2aF8"
                             },
-                    // the impl of source endpoints (the small blue ones)
+                    // the definition of source endpoints (the small blue ones)
                             sourceEndpoint = {
                                 endpoint:"Dot",
                                 paintStyle:{ fillStyle:"#225588",radius:7 },
@@ -85,7 +85,7 @@
                             },
                     // a source endpoint that sits at BottomCenter
                     //	bottomSource = jsPlumb.extend( { anchor:"BottomCenter" }, sourceEndpoint),
-                    // the impl of target endpoints (will appear when the user drags a connection)
+                    // the definition of target endpoints (will appear when the user drags a connection)
                             targetEndpoint = {
                                 endpoint:"Dot",
                                 paintStyle:{ fillStyle:"#558822",radius:11 },
