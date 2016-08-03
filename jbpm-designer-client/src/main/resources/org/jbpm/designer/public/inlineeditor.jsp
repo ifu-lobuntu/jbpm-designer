@@ -29,6 +29,14 @@
   <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/designer-compressed-stylesheets.css" type="text/css" />
   <!-- The sprite css files included here must come after the ext css because the classes override classes in ext styles -->
   <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/sprite-stylesheets.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/ucd-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/cmmn-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/vdan-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/vdpe-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/vdrc-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/vdcm-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/vdlib-images-sprite.css" type="text/css" />
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="Stylesheet" media="screen" href="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/css/sprites/meas-images-sprite.css" type="text/css" />
 
   <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/CFInstall.min.js"></script>
 
@@ -45,6 +53,15 @@
     <jsp:include page="i18n/translation.jsp"/>
     <!-- plugins -->
     <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/compressed/designer-plugins.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/extensions/extensions.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/cmmn/cmmn.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/ucd/ucd.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/vdrc/vdrc.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/vdcm/vdcm.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/vdpe/vdpe.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/vdan/vdan.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/vdlib/vdlib.js" type="text/javascript"></script>
+    <script xmlns="http://www.w3.org/1999/xhtml" src="<%=request.getContextPath()%>/org.jbpm.designer.jBPMDesigner/js/Plugins/meas/meas.js" type="text/javascript"></script>
     <!-- dynamic properties -->
     <script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="<%=request.getContextPath()%>/editor/?uuid=<%=request.getParameter("uuid")%>&profile=<%=request.getParameter("profile")%>&pp=<%=request.getParameter("pp")%>&editorid=<%=request.getParameter("editorid")%>&readonly=<%=request.getParameter("readonly")%>&instanceviewmode=<%=request.getParameter("instanceviewmode")%>&ts=<%=request.getParameter("ts")%>&sessionId=<%=request.getParameter("sessionId")%>"></script>
 

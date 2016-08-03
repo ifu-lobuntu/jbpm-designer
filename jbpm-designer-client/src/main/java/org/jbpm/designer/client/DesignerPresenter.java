@@ -50,6 +50,7 @@ import org.uberfire.client.annotations.WorkbenchPartTitle;
 import org.uberfire.client.annotations.WorkbenchPartTitleDecoration;
 import org.uberfire.client.annotations.WorkbenchPartView;
 import org.uberfire.client.mvp.PlaceManager;
+import org.uberfire.client.workbench.type.ClientResourceType;
 import org.uberfire.client.mvp.UpdatedLockStatusEvent;
 import org.uberfire.ext.editor.commons.client.file.CommandWithFileNameAndCommitMessage;
 import org.uberfire.ext.editor.commons.client.file.FileNameAndCommitMessage;
@@ -72,9 +73,7 @@ import org.uberfire.workbench.model.menu.Menus;
 
 import static org.uberfire.ext.widgets.common.client.common.ConcurrentChangePopup.*;
 
-@Dependent
-@WorkbenchEditor(identifier = "jbpm.designer", supportedTypes = { Bpmn2Type.class })
-public class DesignerPresenter
+public abstract class DesignerPresenter
         extends KieEditor {
 
     @Inject
@@ -95,8 +94,6 @@ public class DesignerPresenter
     @Inject
     private Caller<RenameService> renameService;
 
-    @Inject
-    private Bpmn2Type resourceType;
 
     @Inject
     private User user;
@@ -120,8 +117,10 @@ public class DesignerPresenter
     @OnStartup
     public void onStartup( final ObservablePath path,
                            final PlaceRequest place ) {
-        super.init( path, place, resourceType );
+        super.init( path, place, getResourceType() );
     }
+
+    protected abstract  ClientResourceType getResourceType();
 
     @OnMayClose
     public boolean canClose() {

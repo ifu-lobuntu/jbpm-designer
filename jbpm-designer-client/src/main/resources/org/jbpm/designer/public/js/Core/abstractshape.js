@@ -143,6 +143,17 @@ ORYX.Core.AbstractShape = ORYX.Core.UIObject.extend(
 
 		return result;
 	},
+	getPersistentChildShapes: function() {
+		var result = [];
+
+		this.children.each(function(uiObject) {
+			if(uiObject instanceof ORYX.Core.Shape && (uiObject.isVisible || uiObject.behindCollapsedParent)) {
+				result.push(uiObject);
+			}
+		});
+
+		return result;
+	},
     
     /**
      * @param {Object} shape
@@ -420,7 +431,7 @@ ORYX.Core.AbstractShape = ORYX.Core.UIObject.extend(
             stencil: {
                 id: this.getStencil().idWithoutNs()
             },
-            childShapes: this.getChildShapes().map(function(shape){
+            childShapes: this.getPersistentChildShapes().map(function(shape){
                 return shape.toJSON()
             })
         };

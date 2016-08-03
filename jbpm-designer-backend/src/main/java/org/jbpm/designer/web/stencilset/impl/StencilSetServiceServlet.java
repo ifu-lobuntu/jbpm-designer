@@ -17,7 +17,13 @@ package org.jbpm.designer.web.stencilset.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
+import javax.enterprise.inject.Any;
+import javax.enterprise.inject.Instance;
+import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +31,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.jbpm.designer.util.ConfigurationProvider;
+import org.jbpm.designer.web.profile.IDiagramProfile;
+import org.jbpm.designer.web.profile.IExtensionDiagramProfile;
 import org.jbpm.designer.web.stencilset.IDiagramStencilSet;
 import org.jbpm.designer.web.stencilset.IDiagramStencilSetService;
 import org.slf4j.Logger;
@@ -44,6 +52,10 @@ private static final Logger _logger = LoggerFactory.getLogger(StencilSetServiceS
     private String defaultName;
     
     private IDiagramStencilSetService _pluginService;
+    
+    @Inject
+    @Any
+    private Instance<IDiagramProfile> profiles;
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -63,10 +75,20 @@ private static final Logger _logger = LoggerFactory.getLogger(StencilSetServiceS
         }
 
         String name = null;
-        try {
-            name = segments[2];
-        } catch (Exception e) {
-            name = segments[segments.length-1];
+        IExtensionDiagramProfile edp=null;
+        for (IDiagramProfile p:this.profiles) {
+            if(p instanceof IExtensionDiagramProfile && p.getStencilSet()!=null && requestURI.contains(p.getStencilSet())){
+              name=p.getStencilSet();
+              edp=(IExtensionDiagramProfile) p;
+              break;
+            }
+        }
+        if(name==null){
+            if(segments.length>1){
+                name = segments[2];
+            }else{
+                name=segments[0];
+            }
         }
 
         if(name.length() < 1) {
@@ -119,7 +141,20 @@ private static final Logger _logger = LoggerFactory.getLogger(StencilSetServiceS
             if(path.startsWith("2.0jbpm/bpmn2.0jbpm.json/")) {
                 path = path.substring("2.0jbpm/bpmn2.0jbpm.json/".length(), path.length());
             }
-
+            if(edp!=null){
+                boolean found=false;
+                StringBuilder sb = new StringBuilder();
+                for (String s : segments) {
+                    if(found){
+                        sb.append("/");
+                        sb.append(s);
+                    }else if(s.equals(edp.getStencilSet())){
+                        found=true;
+                    }
+                }
+                //Assumes stencilsetFileName={stencilsetName}.json
+                path=sb.toString().replace(edp.getStencilSet() + ".json/", "/").replace("//", "/");
+            }
             input = stencilset.getResourceContents(path);
             if(requestURI.endsWith(".svg")) {
                 resp.setContentType("text/xml");

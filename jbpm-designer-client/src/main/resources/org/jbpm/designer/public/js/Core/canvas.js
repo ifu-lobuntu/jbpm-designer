@@ -98,8 +98,8 @@ ORYX.Core.Canvas = ORYX.Core.AbstractShape.extend({
 			['path', {d:d , stroke:'#000000', 'stroke-width':'0.15px'},]);
 		*/
 		
-		//Global definition of default font for shapes
-		//Definitions in the SVG definition of a stencil will overwrite these settings for
+		//Global impl of default font for shapes
+		//Definitions in the SVG impl of a stencil will overwrite these settings for
 		// that stencil.
 		/*if(navigator.platform.indexOf("Mac") > -1) {
 			this.node.setAttributeNS(null, 'stroke', 'black');

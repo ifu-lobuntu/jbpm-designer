@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,7 +30,7 @@ import org.uberfire.backend.vfs.VFSService;
 
 
 /**
- * 
+ *
  * @author Tihomir Surdilovic
  */
 public class PreprocessingServiceImpl implements IDiagramPreprocessingService {
@@ -53,6 +54,14 @@ public class PreprocessingServiceImpl implements IDiagramPreprocessingService {
     public void init(ServletContext context, VFSService vfsService) {
         _registry.put("default", new DefaultPreprocessingUnit(context, vfsService));
         _registry.put("jbpm", new JbpmPreprocessingUnit(context, vfsService));
+        _registry.put("cmmn", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("vdan", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("vdpe", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("vdrc", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("ucd", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("meas", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("vdcm", new DefaultPreprocessingUnit(context, vfsService));
+        _registry.put("vdlib", new DefaultPreprocessingUnit(context, vfsService));
     }
 
 }

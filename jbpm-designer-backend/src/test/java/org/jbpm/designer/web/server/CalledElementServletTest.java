@@ -71,7 +71,6 @@ public class CalledElementServletTest extends RepositoryBaseTest {
     @Test
     public void testDoPostProfileAlreadySet() throws Exception {
         HttpServletRequest request = mock(HttpServletRequest.class);
-        servlet.profile = profile;
         try {
             servlet.doPost(request, mock(HttpServletResponse.class));
         } catch (Exception e) {
