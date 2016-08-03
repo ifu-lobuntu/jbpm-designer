@@ -2040,7 +2040,7 @@
 					"type":"String",
 					"title":"OperationRef",
 					"value":"",
-					"description":"ID-Reference to an operation impl.",
+					"description":"ID-Reference to an operation definition.",
 					"description_ja":"オペレーションの定義へのID参照。",
 					"readonly":false,
 					"optional":true

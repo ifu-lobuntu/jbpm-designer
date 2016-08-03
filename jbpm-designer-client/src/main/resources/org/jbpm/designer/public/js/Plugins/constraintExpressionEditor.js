@@ -298,7 +298,7 @@ Ext.form.GuvnorPopupEditor = function(_srcShape, _onSave){
                    return;
                }
 
-               //get working-set impl for the model entities found in path
+               //get working-set definition for the model entities found in path
                var workingSetXML = "";
                
                new Ajax.Request("/workingSet", {

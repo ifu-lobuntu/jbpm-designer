@@ -78,7 +78,7 @@ ORYX.Core.StencilSet.StencilSet = Clazz.extend({
     /**
      * Finds a root stencil in this stencil set. There may be many of these. If
      * there are, the first one found will be used. In Firefox, this is the
-     * topmost impl in the stencil set description file.
+     * topmost definition in the stencil set description file.
      */
     findRootStencilName: function(){
     
@@ -229,11 +229,11 @@ ORYX.Core.StencilSet.StencilSet = Clazz.extend({
 					var jsonObject = responseStr.evalJSON();
 					this.addExtensionDirectly(jsonObject);
 				} catch (e) {
-					ORYX.Log.debug("Unable to load extension impl: " + e);
+					ORYX.Log.debug("Unable to load extension definition: " + e);
                     ORYX.EDITOR._pluginFacade.raiseEvent({
                         type 		: ORYX.CONFIG.EVENT_NOTIFICATION_SHOW,
                         ntype		: 'error',
-                        msg         : 'Unable to load extension impl: ' + e,
+                        msg         : 'Unable to load extension definition: ' + e,
                         title       : ''
 
                     });
@@ -243,7 +243,7 @@ ORYX.Core.StencilSet.StencilSet = Clazz.extend({
                 ORYX.EDITOR._pluginFacade.raiseEvent({
                     type 		: ORYX.CONFIG.EVENT_NOTIFICATION_SHOW,
                     ntype		: 'error',
-                    msg         : 'Unable to create extension impl.',
+                    msg         : 'Unable to create extension definition.',
                     title       : ''
 
                 });
@@ -422,7 +422,7 @@ ORYX.Core.StencilSet.StencilSet = Clazz.extend({
         
             // assert there is a namespace.
             if (!namespace || namespace === "") 
-                throw "Namespace impl missing in stencilset.";
+                throw "Namespace definition missing in stencilset.";
             
             if (!(stencils instanceof Array)) 
                 throw "Stencilset corrupt.";
