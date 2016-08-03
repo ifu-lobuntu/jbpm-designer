@@ -11,27 +11,27 @@ ORYX.Plugins.SavePlugin = Clazz.extend({
         this.editorLocked = false;
 
         if(!(ORYX.READONLY == true || ORYX.VIEWLOCKED == true)) {
-//            this.facade.offer({
-//                'name': ORYX.I18N.Save.save,
-//                'functionality': this.saveWithMessage.bind(this),
-//                'group': ORYX.I18N.Save.group,
-//                'icon': ORYX.BASE_FILE_PATH + "images/disk.png",
-//                dropDownGroupIcon : ORYX.BASE_FILE_PATH + "images/disk.png",
-//                'description': ORYX.I18N.Save.saveDesc,
-//                'index': 1,
-//                'minShape': 0,
-//                'maxShape': 0,
-//                'isEnabled': function(){
-//                    return ORYX.REPOSITORY_ID != "guvnor" && !(ORYX.READONLY == true || ORYX.VIEWLOCKED == true);
-//    //                profileParamName = "profile";
-//    //                profileParamName = profileParamName.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-//    //                regexSa = "[\\?&]"+profileParamName+"=([^&#]*)";
-//    //                regexa = new RegExp( regexSa );
-//    //                profileParams = regexa.exec( window.location.href );
-//    //                profileParamValue = profileParams[1];
-//    //                return profileParamValue == "jbpm" && ORYX.REPOSITORY_ID != "guvnor";
-//                }.bind(this)
-//            });
+            this.facade.offer({
+                'name': ORYX.I18N.Save.save,
+                'functionality': this.saveWithMessage.bind(this),
+                'group': ORYX.I18N.Save.group,
+                'icon': ORYX.BASE_FILE_PATH + "images/disk.png",
+                dropDownGroupIcon : ORYX.BASE_FILE_PATH + "images/disk.png",
+                'description': ORYX.I18N.Save.saveDesc,
+                'index': 1,
+                'minShape': 0,
+                'maxShape': 0,
+                'isEnabled': function(){
+                    return ORYX.REPOSITORY_ID != "guvnor" && !(ORYX.READONLY == true || ORYX.VIEWLOCKED == true);
+    //                profileParamName = "profile";
+    //                profileParamName = profileParamName.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    //                regexSa = "[\\?&]"+profileParamName+"=([^&#]*)";
+    //                regexa = new RegExp( regexSa );
+    //                profileParams = regexa.exec( window.location.href );
+    //                profileParamValue = profileParams[1];
+    //                return profileParamValue == "jbpm" && ORYX.REPOSITORY_ID != "guvnor";
+                }.bind(this)
+            });
 
             this.facade.offer({
                 'name': ORYX.I18N.Save.enableAutosave,

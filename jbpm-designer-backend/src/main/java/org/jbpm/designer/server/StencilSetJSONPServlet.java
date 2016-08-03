@@ -65,7 +65,7 @@ public class StencilSetJSONPServlet extends HttpServlet {
 				JSONArray extArr = jsonObj.getJSONArray("extensions");
 				for(int i=0; i<extArr.length(); i++) {
 					if(extArr.getJSONObject(i).getString("namespace").equals(resource)) {
-						String definition = extArr.getJSONObject(i).getString("definition");
+						String definition = extArr.getJSONObject(i).getString("impl");
 						File jsonFile = new File(getServletContext().getRealPath("/stencilsets/extensions/"+definition));
 						if(jsonp!=null) out.append(jsonp + "(");
 						BufferedReader reader2 = new BufferedReader(new FileReader(jsonFile));

@@ -923,7 +923,7 @@ public class Bpmn2JsonMarshaller {
                 marshallNode(startEvent, properties, "StartCompensationEvent", plane, generator, xOffset, yOffset);
             }
     		else {
-    			throw new UnsupportedOperationException("Event definition not supported: " + eventDefinition);
+    			throw new UnsupportedOperationException("Event impl not supported: " + eventDefinition);
     		}
     	} else {
     		throw new UnsupportedOperationException("Multiple event definitions not supported for start event");
@@ -953,7 +953,7 @@ public class Bpmn2JsonMarshaller {
             } else if(eventDefinition instanceof CancelEventDefinition) {
                 marshallNode(endEvent, properties, "EndCancelEvent", plane, generator, xOffset, yOffset);
     		} else {
-    			throw new UnsupportedOperationException("Event definition not supported: " + eventDefinition);
+    			throw new UnsupportedOperationException("Event impl not supported: " + eventDefinition);
     		}
     	} else {
     		throw new UnsupportedOperationException("Multiple event definitions not supported for end event");
@@ -982,7 +982,7 @@ public class Bpmn2JsonMarshaller {
                 marshallNode(catchEvent, properties, "IntermediateCompensationEventCatching", plane, generator, xOffset, yOffset);
             }
     		else {
-    			throw new UnsupportedOperationException("Event definition not supported: " + eventDefinition);
+    			throw new UnsupportedOperationException("Event impl not supported: " + eventDefinition);
     		}
     	} else {
     		throw new UnsupportedOperationException("Intermediate catch event does not have event impl.");
@@ -1016,7 +1016,7 @@ public class Bpmn2JsonMarshaller {
     		} else if(eventDefinition instanceof MessageEventDefinition) {
     		    marshallNode(boundaryEvent, catchEventProperties, "IntermediateMessageEventCatching", plane, generator, xOffset, yOffset);
     		}else {
-    			throw new UnsupportedOperationException("Event definition not supported: " + eventDefinition);
+    			throw new UnsupportedOperationException("Event impl not supported: " + eventDefinition);
     		}
     	} else {
     		throw new UnsupportedOperationException("None or multiple event definitions not supported for boundary event");
@@ -1042,7 +1042,7 @@ public class Bpmn2JsonMarshaller {
     		} else if (eventDefinition instanceof CompensateEventDefinition) {
     			marshallNode(throwEvent, properties, "IntermediateCompensationEventThrowing", plane, generator, xOffset, yOffset);
     		} else {
-    			throw new UnsupportedOperationException("Event definition not supported: " + eventDefinition);
+    			throw new UnsupportedOperationException("Event impl not supported: " + eventDefinition);
     		}
     	} else {
     		throw new UnsupportedOperationException("None or multiple event definitions not supported for intermediate throw event");
