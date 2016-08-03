@@ -109,6 +109,9 @@ public class  RepositoryDescriptor {
             if (uuid == null) {
                 uuid = httpRequest.get().getParameter("assetId");
             }
+            if (uuid == null) {
+                uuid = Utils.getEncodedParam(httpRequest.get(), "assetid");
+            }
             if (uuid == null && path != null) {
                 uuid = path;
             }

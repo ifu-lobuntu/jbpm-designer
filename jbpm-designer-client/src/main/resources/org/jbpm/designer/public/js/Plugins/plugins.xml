@@ -381,8 +381,18 @@
 			<property name="hideRHS" value="true" />
 			<property name="hideAttributes" value="true" />
 		</plugin>
-                <plugin source="DataAssignment/extendedDataAssignmentEditor.js" name="ORYX.Plugins.ExtendedDataAssignmentEditor" />        
-                <plugin source="DataAssignment/FieldDataAssignmentEditors.js" name="ORYX.Plugins.FieldDataAssignmentEditors" />        
+                <plugin source="DataAssignment/extendedDataAssignmentEditor.js" name="ORYX.Plugins.ExtendedDataAssignmentEditor" />
+                <plugin source="DataAssignment/FieldDataAssignmentEditors.js" name="ORYX.Plugins.FieldDataAssignmentEditors" />
+                <plugin source="extensions/extensions.js" name="ORYX.Plugins.Extensions" />
+                <plugin source="extensions/extensions.js" name="ORYX.Plugins.ExtensionsFormEditing" />
+                <plugin source="cmmn/cmmn.js" name="ORYX.Plugins.CMMN" />
+                <plugin source="vdrc/vdrc.js" name="ORYX.Plugins.VDRC" />
+                <plugin source="vdcm/vdcm.js" name="ORYX.Plugins.VDCM" />
+                <plugin source="vdlib/vdlib.js" name="ORYX.Plugins.VDLib" />
+                <plugin source="vdan/vdan.js" name="ORYX.Plugins.VDAN" />
+                <plugin source="vdpe/vdpe.js" name="ORYX.Plugins.VDPE" />
+                <plugin source="meas/meas.js" name="ORYX.Plugins.MEAS" />
+                <plugin source="ucd/ucd.js" name="ORYX.Plugins.UCD" />
 	</plugins>
 
 

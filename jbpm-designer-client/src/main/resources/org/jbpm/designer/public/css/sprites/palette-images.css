@@ -23,7 +23,7 @@
  *
  * Stylesheet for palette images
  *
- * In each class definition, the first selector, e.g. ".stencilsets_bpmn2_0jbpm_icons_activity_list_type_user" is
+ * In each class impl, the first selector, e.g. ".stencilsets_bpmn2_0jbpm_icons_activity_list_type_user" is
  * for the shapemenu, and the second, e.g. ".x-tree-node-leaf .stencilsets_bpmn2_0jbpm_bpmn2_0jbpm_json_icons_activity_list_type_user"
  * is for the palette.
  * ********************************************************************************************************************

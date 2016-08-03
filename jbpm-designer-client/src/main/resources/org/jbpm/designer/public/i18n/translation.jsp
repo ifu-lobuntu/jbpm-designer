@@ -162,7 +162,7 @@ ORYX.I18N.BPELSupport.transformBPELToBPMN_desc='<i18n:message key="ORYX.I18N.BPE
 ORYX.I18N.BPELSupport.submit='<i18n:message key="ORYX.I18N.BPELSupport.submit">Submit</i18n:message>';
 ORYX.I18N.BPELSupport.transforming='<i18n:message key="ORYX.I18N.BPELSupport.transforming">Transforming...</i18n:message>';
 ORYX.I18N.BPELSupport.errorImporting='<i18n:message key="ORYX.I18N.BPELSupport.errorImporting">The BPEL file could not be imported.</i18n:message>';
-ORYX.I18N.BPELSupport.noComply='<i18n:message key="ORYX.I18N.BPELSupport.noComply">Your BPEL file does not comply with the XML schema definition.</i18n:message>';
+ORYX.I18N.BPELSupport.noComply='<i18n:message key="ORYX.I18N.BPELSupport.noComply">Your BPEL file does not comply with the XML schema impl.</i18n:message>';
 ORYX.I18N.BPELSupport.errorMessage='<i18n:message key="ORYX.I18N.BPELSupport.errorMessage">Error message:</i18n:message>';
 
 
@@ -316,7 +316,7 @@ ORYX.I18N.ERDFSupport.impFailed = '<i18n:message key="ORYX.I18N.ERDFSupport.impF
 ORYX.I18N.ERDFSupport.impFailed2 = '<i18n:message key="ORYX.I18N.ERDFSupport.impFailed2">An error while importing occurs! <br/>Please check error message: <br/><br/></i18n:message>';
 ORYX.I18N.ERDFSupport.error = '<i18n:message key="ORYX.I18N.ERDFSupport.error">Error</i18n:message>';
 ORYX.I18N.ERDFSupport.noCanvas = '<i18n:message key="ORYX.I18N.ERDFSupport.noCanvas">The xml document has no Oryx canvas node included!</i18n:message>';
-ORYX.I18N.ERDFSupport.noSS = '<i18n:message key="ORYX.I18N.ERDFSupport.noSS">The Oryx canvas node has no stencil set definition included!</i18n:message>';
+ORYX.I18N.ERDFSupport.noSS = '<i18n:message key="ORYX.I18N.ERDFSupport.noSS">The Oryx canvas node has no stencil set impl included!</i18n:message>';
 ORYX.I18N.ERDFSupport.wrongSS = '<i18n:message key="ORYX.I18N.ERDFSupport.wrongSS">The given stencil set does not fit to the current editor!</i18n:message>';
 ORYX.I18N.ERDFSupport.selectFile = '<i18n:message key="ORYX.I18N.ERDFSupport.selectFile">Select an ERDF (.xml) file or type in the ERDF to import it!</i18n:message>';
 ORYX.I18N.ERDFSupport.file = '<i18n:message key="ORYX.I18N.ERDFSupport.file">File</i18n:message>';
@@ -1510,8 +1510,8 @@ ORYX.I18N.main.failSave='<i18n:message key="ORYX.I18N.main.failSave">Failed to s
 ORYX.I18N.main.unableUserAction='<i18n:message key="ORYX.I18N.main.unableUserAction">Unable to perform user action due to error(s).<br/>Validate your process before saving, and view server logs to see error details.</i18n:message>';
 
 if(!ORYX.I18N.constraintExpr) ORYX.I18N.constraintExpr = {}
-ORYX.I18N.constraintExpr.errorPropertyMissing='<i18n:message key="ORYX.I18N.constraintExpr.errorPropertyMissing">Error reading definition of showConstraintEditorWhen: \\\'property\\\' is missing!</i18n:message>';
-ORYX.I18N.constraintExpr.errorValueIsMissing='<i18n:message key="ORYX.I18N.constraintExpr.errorValueIsMissing">Error reading definition of showConstraintEditorWhen: \\\'value\\\' is missing!</i18n:message>';
+ORYX.I18N.constraintExpr.errorPropertyMissing='<i18n:message key="ORYX.I18N.constraintExpr.errorPropertyMissing">Error reading impl of showConstraintEditorWhen: \\\'property\\\' is missing!</i18n:message>';
+ORYX.I18N.constraintExpr.errorValueIsMissing='<i18n:message key="ORYX.I18N.constraintExpr.errorValueIsMissing">Error reading impl of showConstraintEditorWhen: \\\'value\\\' is missing!</i18n:message>';
 ORYX.I18N.constraintExpr.configureProcess='<i18n:message key="ORYX.I18N.constraintExpr.configureProcess">Please configure Process \\\'package\\\' attribute first</i18n:message>';
 ORYX.I18N.constraintExpr.defineOneModel='<i18n:message key="ORYX.I18N.constraintExpr.defineOneModel">You must define at least 1 Model Entity in your process!</i18n:message>';
 ORYX.I18N.constraintExpr.factNameMandatory='<i18n:message key="ORYX.I18N.constraintExpr.factNameMandatory">Fact Name is mandatory</i18n:message>';

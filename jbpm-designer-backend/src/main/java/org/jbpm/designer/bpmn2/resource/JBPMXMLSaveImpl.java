@@ -122,7 +122,7 @@ public class JBPMXMLSaveImpl extends XMLSaveImpl {
     		- resources (19) 
     		- correlationSubscriptions (20)
     		- supports (21) 
-    	  Semantic.xsd sequence definition for Process:
+    	  Semantic.xsd sequence impl for Process:
     	  <xsd:sequence>
 			<xsd:element ref="auditing" minOccurs="0" maxOccurs="1"/>
 			<xsd:element ref="monitoring" minOccurs="0" maxOccurs="1"/>

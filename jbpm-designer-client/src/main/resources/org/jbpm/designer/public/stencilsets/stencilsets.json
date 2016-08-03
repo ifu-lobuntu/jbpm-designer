@@ -6,5 +6,45 @@
             "uri":"/bpmn2.0jbpm/bpmn2.0jbpm.json",
             "icon_url":"/bpmn2.0jbpm/bpmn2.0jbpm.png",
             "visible":true
+        },
+        {
+            "title":"CMMN 1.0",
+            "namespace":"http://b3mn.org/stencilset/cmmn#",
+            "description":"This is the jBPM CMMN 1.0 stencil set specification.",
+            "uri":"/cmmn/cmmn.json",
+            "icon_url":"/cmmn/cmmn.png",
+            "visible":true
+        },
+        {
+            "title":"VDML Activity Network",
+            "namespace":"http://b3mn.org/stencilset/vdan.0#",
+            "description":"This is the jBPM VDML Activity Network stencil set specification.",
+            "uri":"/vdmlactitivitynetwork/vdmlactitivitynetwork.json",
+            "icon_url":"/vdmlactitivitynetwork/vdmlactitivitynetwork.png",
+            "visible":true
+        },
+        {
+            "title":"VDML Proposition Exchange",
+            "namespace":"http://b3mn.org/stencilset/vdpe.0#",
+            "description":"This is the jBPM VDML  Value Proposition Exchange stencil set specification.",
+            "uri":"/vdpe/vdpe.json",
+            "icon_url":"/vdpe/vdpe.png",
+            "visible":true
+        },
+        {
+            "title":"Class Diagram",
+            "namespace":"http://b3mn.org/stencilset/ucd.0#",
+            "description":"This is the jBPM Class Diagram stencilset.",
+            "uri":"/ucd/ucd.json",
+            "icon_url":"/ucd/ucd.png",
+            "visible":true
+        },
+        {
+            "title":"Measure Library",
+            "namespace":"http://b3mn.org/stencilset/meas.0#",
+            "description":"This is the jBPM Measure Library Diagram stencilset.",
+            "uri":"/meas/meas.json",
+            "icon_url":"/meas/meas.png",
+            "visible":true
         }
 ]

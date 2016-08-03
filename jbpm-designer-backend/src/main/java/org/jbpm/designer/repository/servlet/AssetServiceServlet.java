@@ -15,6 +15,9 @@
 
 package org.jbpm.designer.repository.servlet;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.jbpm.designer.util.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +25,8 @@ import org.jbpm.designer.repository.*;
 import org.jbpm.designer.repository.impl.AssetBuilder;
 import org.jbpm.designer.web.profile.IDiagramProfile;
 import org.jbpm.designer.web.profile.IDiagramProfileService;
+import org.jbpm.designer.web.profile.IExtensionDiagramProfile;
+import org.jbpm.designer.web.profile.impl.EMFVFSURIConverter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,10 +37,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.io.StringWriter;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * Servlet wraps Repository asset api.
@@ -91,7 +102,7 @@ public class AssetServiceServlet extends HttpServlet {
         JSONArray errorsArray = new JSONArray();
 
         try {
-
+            IDiagramProfile profile =this.profile;
             if (profile == null) {
                 profile = _profileService.findProfile(req, profileName);
             }
@@ -117,23 +128,41 @@ public class AssetServiceServlet extends HttpServlet {
                 jsonResponse(returnObj, errorsArray, resp);
             } else if(action != null && action.equals(ACTION_UPDATE_ASSET)) {
                 try {
-                    if(assetContentTransform != null && assetContentTransform.equals(TRANSFORMATION_JSON_TO_BPMN2)) {
+                    Map<String,String> changedAssets=new HashMap<String,String>();
+                    if(profile instanceof IExtensionDiagramProfile){
+                        URI uri = EMFVFSURIConverter.toPlatformResourceURI(assetId);
+                        String repo=EMFVFSURIConverter.getRepositoryInfo(assetId);
+                        IExtensionDiagramProfile edp = (IExtensionDiagramProfile)profile;
+                        Resource baseResource = edp.createMarshaller(uri).getResource(assetContent, preprocessingData);
+                        EList<Resource> resources = baseResource.getResourceSet().getResources();
+                        for (Resource resource : resources) {
+                            if(resource.getURI().isPlatformResource() && resource.isModified()){
+                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                resource.save(baos, edp.buildDefaultResourceOptions());
+                                changedAssets.put(repo+resource.getURI().toPlatformString(true), new String(baos.toString("UTF-8")));
+                            }
+                        }
+                    }else{
+                        if(assetContentTransform != null && assetContentTransform.equals(TRANSFORMATION_JSON_TO_BPMN2)) {
                             assetContent = profile.createMarshaller().parseModel(assetContent, preprocessingData);
+                        }
+                        if (pathURI != null && pathURI.length() > 0) {
+                            changedAssets.put(pathURI,assetContent);
+                        } else {
+                            changedAssets.put(assetId,assetContent);
+                        }
                     }
-                    Asset<String> currentAsset = null;
-                    if(pathURI != null && pathURI.length() > 0) {
-                        currentAsset = repository.loadAsset(pathURI);
-                    } else {
-                        currentAsset = repository.loadAsset(assetId);
-                    }
+                    for (Entry<String, String> entry : changedAssets.entrySet()) {
 
-                    AssetBuilder builder = AssetBuilderFactory.getAssetBuilder(currentAsset);
-                    builder.content(assetContent);
-                    String id = repository.updateAsset(builder.getAsset(), commitMessage, sessionId);
+                        Asset<String> currentAsset = repository.loadAsset(entry.getKey());
+                        AssetBuilder builder = AssetBuilderFactory.getAssetBuilder(currentAsset);
+                        builder.content(entry.getValue());
+                        String id = repository.updateAsset(builder.getAsset(), commitMessage, sessionId);
 
-                      if(id == null) {
-                        _logger.error("Unable to store asset: " + assetLocation);
-                        addError(errorsArray, "Unable to store asset: " + assetLocation);
+                        if (id == null) {
+                            _logger.error("Unable to store asset: " + assetLocation);
+                            addError(errorsArray, "Unable to store asset: " + assetLocation);
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
