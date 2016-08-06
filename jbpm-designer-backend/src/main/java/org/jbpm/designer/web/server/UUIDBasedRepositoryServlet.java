@@ -114,7 +114,7 @@ public class UUIDBasedRepositoryServlet extends HttpServlet {
         if (uuid == null) {
             throw new ServletException("uuid parameter required");
         }
-        if(profile == null) {
+        if(profile == null || true) {
             profile = _profileService.findProfile(req, profileName);
         }
 		try {
@@ -136,7 +136,7 @@ public class UUIDBasedRepositoryServlet extends HttpServlet {
             preProcessingParam = "ReadOnlyService";
         }
         if(actionParam != null && actionParam.equals("toXML")) {
-            if(profile == null) {
+            if(profile == null || true) {
                 profile = _profileService.findProfile(req, profileName);
             }
             String json = req.getParameter("data");
@@ -154,7 +154,7 @@ public class UUIDBasedRepositoryServlet extends HttpServlet {
             resp.getWriter().print(output.toString());
         } else if(actionParam != null && actionParam.equals("checkErrors")) { 
         	String retValue = "false";
-        	if(profile == null) {
+        	if(profile == null || true) {
                 profile = _profileService.findProfile(req, profileName);
             }
             String json = req.getParameter("data");
@@ -190,7 +190,7 @@ public class UUIDBasedRepositoryServlet extends HttpServlet {
                 String uuid = (String) jsonObject.get("uuid");
                 boolean autosave = jsonObject.getBoolean("savetype");
             
-                if(profile == null) {
+                if(profile == null || true) {
                     profile = _profileService.findProfile(req, profileName);
                 }
             

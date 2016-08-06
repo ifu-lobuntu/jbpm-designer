@@ -220,8 +220,9 @@ public class DefaultDesignerAssetService
         String name = path.getFileName();
         String processId = buildProcessId( location, name );
         String packageName = buildPackageName(location, name);
-        String processContent = PROCESS_STUB.replaceAll( "\\$\\{processid\\}", processId.replaceAll("\\s", "") )
-                                            .replaceAll("\\$\\{packageName\\}", packageName.replaceAll("\\s", ""));
+        String processContent = assetHelper.getDefaultContentFor(path)
+                .replaceAll( "\\$\\{processid\\}", processId.replaceAll("\\s", "") )
+                .replaceAll("\\$\\{packageName\\}", packageName.replaceAll("\\s", ""));
         AssetBuilder builder = AssetBuilderFactory.getAssetBuilder( name );
         builder.location( location ).content( processContent ).uniqueId( path.toURI() );
         Asset<String> processAsset = builder.getAsset();
