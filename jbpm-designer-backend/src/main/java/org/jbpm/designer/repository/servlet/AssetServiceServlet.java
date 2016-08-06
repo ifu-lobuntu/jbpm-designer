@@ -103,7 +103,7 @@ public class AssetServiceServlet extends HttpServlet {
 
         try {
             IDiagramProfile profile =this.profile;
-            if (profile == null) {
+            if (profile == null || true) {
                 profile = _profileService.findProfile(req, profileName);
             }
             Repository repository = profile.getRepository();

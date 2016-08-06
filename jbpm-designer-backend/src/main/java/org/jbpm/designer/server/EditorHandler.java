@@ -245,7 +245,7 @@ public class EditorHandler extends HttpServlet {
             viewLocked = "false";
         }
 
-        if(profile == null) {
+        if(profile == null || true) {
             profile = _profileService.findProfile(request, profileName);
         }
 
